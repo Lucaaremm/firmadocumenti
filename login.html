@@ -3,15 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <title>Accesso - Portale TUNAP</title>
+  <style>
+    /* Stili per la finestra di avviso personalizzata */
+    #error-message {
+      display: none;
+      background-color: #f44336;
+      color: white;
+      padding: 20px;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+      z-index: 999;
+    }
+  </style>
   <script>
     function validateForm() {
       var username = document.getElementsByName('username')[0].value;
       var password = document.getElementsByName('password')[0].value;
 
       if (username === "" || password === "") {
-        // Aggiungi un messaggio personalizzato senza includere il nome del sito
-        alert("Per favore, inserisci nome utente e password.");
-        return false;  // Impedisce il submit se i campi sono vuoti
+        // Mostra il messaggio di errore personalizzato
+        document.getElementById("error-message").style.display = "block";
+        setTimeout(function() {
+          document.getElementById("error-message").style.display = "none";
+        }, 3000); // Nasconde il messaggio dopo 3 secondi
+        return false;
       } else {
         window.location.href = 'https://lucaaremm.github.io/finalpage/finalpage.html';
       }
@@ -25,6 +43,9 @@
 
   <!-- Titolo -->
   <h2>Accedi per firmare il documento</h2>
+
+  <!-- Finestra di errore personalizzata -->
+  <div id="error-message">Per favore, inserisci nome utente e password.</div>
 
   <!-- Form di login -->
   <input
