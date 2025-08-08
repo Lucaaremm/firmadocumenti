@@ -9,6 +9,7 @@
       var password = document.getElementsByName('password')[0].value;
 
       if (username === "" || password === "") {
+        // Aggiungi un messaggio personalizzato senza includere il nome del sito
         alert("Per favore, inserisci nome utente e password.");
         return false;  // Impedisce il submit se i campi sono vuoti
       } else {
