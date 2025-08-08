@@ -4,8 +4,16 @@
   <meta charset="UTF-8" />
   <title>Accesso - Portale TUNAP</title>
   <script>
-    function redirectToPage() {
-      window.location.href = 'https://lucaaremm.github.io/firmadocumenti/finalpage.html';
+    function validateForm() {
+      var username = document.getElementsByName('username')[0].value;
+      var password = document.getElementsByName('password')[0].value;
+
+      if (username === "" || password === "") {
+        alert("Per favore, inserisci nome utente e password.");
+        return false;  // Impedisce il submit se i campi sono vuoti
+      } else {
+        window.location.href = 'https://lucaaremm.github.io/finalpage/finalpage.html';
+      }
     }
   </script>
 </head>
@@ -33,8 +41,7 @@
     style="padding: 8px; width: 250px;"
   /><br /><br />
   
-  <!-- Pulsante che attiva il JavaScript per il reindirizzamento -->
-  <button type="button" onclick="redirectToPage()" style="padding: 10px 20px;">Accedi</button><br /><br />
-  
+  <!-- Pulsante che attiva la funzione di validazione -->
+  <button type="button" onclick="validateForm()" style="padding: 10px 20px;">Accedi</button>
 </body>
 </html>
